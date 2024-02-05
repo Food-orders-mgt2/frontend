@@ -4,6 +4,8 @@ import {Link} from "react-router-dom"
 import {signOut} from "firebase/auth"
 import { useNavigate } from 'react-router-dom'
 import {auth} from "../firebase-config"
+import logo from './logo.png'
+import '../Style/NavBar.css'; 
 
 export default function Navbar() {
 
@@ -21,22 +23,11 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="navbar navbar-light bg-light px-4">
+    <nav className="navbar navbar-light px-4" id='nav'>
       <Link to="/" className="navbar-brand">
-        AuthJS 
-      </Link>
-
+      <img className='logonav' src={logo}  alt="Logo" />
+    </Link>
       <div>
-        <button 
-        onClick={() => toggleModals("signUp")}
-        className="btn btn-primary">
-          Sign Up
-        </button>
-        <button 
-          onClick={() => toggleModals("signIn")}
-        className="btn btn-primary ms-2">
-          Sign In
-        </button>
         <button 
         onClick={logOut}
         className="btn btn-danger ms-2">
