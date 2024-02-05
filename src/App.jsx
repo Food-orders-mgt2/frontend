@@ -13,7 +13,7 @@ function App() {
       <SignInModal />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home/>} />
         <Route path="/private" element={<Private />}>
           <Route path="/private/private-home" element={<PrivateHome />} />
         </Route>
