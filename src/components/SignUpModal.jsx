@@ -37,9 +37,9 @@ export default function SignUpModal() {
         inputs.current[0].value,
         inputs.current[1].value
       )
-      // formRef.current.reset();
+       formRef.current.reset();
       setValidation("")
-      // console.log(cred);
+      console.log(cred);
       toggleModals("close")
       navigate("/private/private-home")
 
