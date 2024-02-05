@@ -18,12 +18,12 @@ export default function Home() {
           <button
             onClick={() => toggleModals("signIn")}
             className="btn btn-primary ms-4 rounded-pill ">
-            Sign In
+            Se connecter
           </button>
           <button
             onClick={() => toggleModals("signUp")}
             className="btn btn-outline-primary ms-4 rounded-pill ">
-            Sign Up
+           S'inscrire
           </button>
         </div> 
         <div className='footers'>

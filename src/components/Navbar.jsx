@@ -31,7 +31,7 @@ export default function Navbar() {
         <button 
         onClick={logOut}
         className="btn btn-danger ms-2">
-          Log Out
+          Se déconnecter
         </button>
       </div>
     </nav>

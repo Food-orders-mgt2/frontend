@@ -55,7 +55,7 @@ export default function SignUpModal() {
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title">Sign Up</h5>
+                  <h5 className="modal-title">S'inscrire</h5>
                   <button onClick={closeModal} className="btn-close"></button>
                 </div>
 
@@ -94,7 +94,7 @@ export default function SignUpModal() {
                       <p className="text-danger mt-1">{validation}</p>
                     </div>
 
-                    <button className="btn btn-primary">Submit</button>
+                    <button className="btn btn-primary">Envoyer</button>
                   </form>
 
                 </div>
