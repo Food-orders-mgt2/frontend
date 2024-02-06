@@ -7,3 +7,17 @@
 .social-icons a:hover {
     color: #ffc107; 
 }
+
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Utilisez les media queries pour modifier le style en fonction de la largeur de l'écran */
+  @media (max-width: 767px) {
+    .footer-fixed {
+      position: relative;
+    }
+  }
+  
