@@ -6,8 +6,8 @@ import '../Style/Footers.css';
 
 export default function Footer() {
     return (
-        <footer className="bg-dark text-white text-center text-lg-start mt-10" id='footers' >
-            <div className="container p-2"  id='footer'>
+        <footer className="bg-dark text-white text-center text-lg-start mt-10" id='footers' style={{ position: 'fixed', bottom: 0, width: '100%' }}>
+            <div className="container p-2" id='footer'>
                 <div className="row">
                     <div className="col-lg-4 col-md-12 mb-0 mb-md-0 ">
                         <h5 className="text-uppercase mb-4">À propos de nous</h5>
