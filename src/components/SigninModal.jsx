@@ -9,6 +9,7 @@ export default function SignInModal() {
 
   const [validation, setValidation] = useState("");
   const [showCodeInput, setShowCodeInput] = useState(false);
+  const [passwordFieldType, setPasswordFieldType] = useState("password");
 
   const inputs = useRef([]);
   const addInputs = (el) => {
@@ -59,9 +60,13 @@ export default function SignInModal() {
     setShowCodeInput(!showCodeInput);
   };
 
+  const togglePasswordVisibility = () => {
+    setPasswordFieldType((prevType) => (prevType === "password" ? "text" : "password"));
+  };
+
   const closeModal = () => {
     setValidation("");
-    setShowCodeInput(false); 
+    setShowCodeInput(false);
     toggleModals("close");
   };
 
@@ -108,14 +113,23 @@ export default function SignInModal() {
                       <label htmlFor="signInPwd" className="form-label">
                         Mot de passe
                       </label>
-                      <input
-                        ref={addInputs}
-                        name="pwd"
-                        required
-                        type="password"
-                        className="form-control"
-                        id="signInPwd"
-                      />
+                      <div className="input-group">
+                        <input
+                          ref={addInputs}
+                          name="pwd"
+                          required
+                          type={passwordFieldType}
+                          className="form-control"
+                          id="signInPwd"
+                        />
+                        <button
+                          type="button"
+                          className="btn btn-primary"
+                          onClick={togglePasswordVisibility}
+                        >
+                          👁️
+                        </button>
+                      </div>
                       <p className="text-danger mt-1">{validation}</p>
                     </div>
 
