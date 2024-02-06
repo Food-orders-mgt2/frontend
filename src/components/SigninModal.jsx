@@ -2,12 +2,13 @@ import React, { useContext, useRef, useState } from "react";
 import { UserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
 
-export default function SignUpModal() {
+export default function SignInModal() {
   const { modalState, toggleModals, signIn } = useContext(UserContext);
 
   const navigate = useNavigate();
 
   const [validation, setValidation] = useState("");
+  const [showCodeInput, setShowCodeInput] = useState(false);
 
   const inputs = useRef([]);
   const addInputs = (el) => {
@@ -19,24 +20,48 @@ export default function SignUpModal() {
 
   const handleForm = async (e) => {
     e.preventDefault();
-    console.log(inputs);
+
+    const email = inputs.current[0].value;
+    const password = inputs.current[1].value;
+    const isAdmin = inputs.current[2].checked;
+
     try {
-      const cred = await signIn(
-        inputs.current[0].value,
-        inputs.current[1].value
-      );
+      let code = "";
+      
+      if (isAdmin) {
+        code = inputs.current[3].value.toLowerCase();
+
+        if (code !== import.meta.env.VITE_APP_FIREBASE_CODE) {
+          throw new Error("Code administrateur incorrect");
+        }
+      }
+
+      const cred = await signIn(email, password);
+
       formRef.current.reset();
       setValidation("");
-       console.log(cred);
+
+      console.log(cred);
+
       toggleModals("close");
-      navigate("/private/private-home");
-    } catch {
-      setValidation("Wopsy, email and/or password incorrect")
+
+      if (isAdmin) {
+        navigate("/private/admin-home");
+      } else {
+        navigate("/private/private-home");
+      }
+    } catch (error) {
+      setValidation(error.message);
     }
+  };
+
+  const handleCheckboxChange = () => {
+    setShowCodeInput(!showCodeInput);
   };
 
   const closeModal = () => {
     setValidation("");
+    setShowCodeInput(false); 
     toggleModals("close");
   };
 
@@ -55,7 +80,7 @@ export default function SignUpModal() {
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title">S'inscrire</h5>
+                  <h5 className="modal-title">Se connecter</h5>
                   <button onClick={closeModal} className="btn-close"></button>
                 </div>
 
@@ -63,11 +88,11 @@ export default function SignUpModal() {
                   <form
                     ref={formRef}
                     onSubmit={handleForm}
-                    className="sign-up-form"
+                    className="sign-in-form"
                   >
                     <div className="mb-3">
                       <label htmlFor="signInEmail" className="form-label">
-                        Email adress
+                        Adresse e-mail
                       </label>
                       <input
                         ref={addInputs}
@@ -81,7 +106,7 @@ export default function SignUpModal() {
 
                     <div className="mb-3">
                       <label htmlFor="signInPwd" className="form-label">
-                        Password
+                        Mot de passe
                       </label>
                       <input
                         ref={addInputs}
@@ -94,9 +119,37 @@ export default function SignUpModal() {
                       <p className="text-danger mt-1">{validation}</p>
                     </div>
 
-                    <button className="btn btn-primary">Envoyer</button>
-                  </form>
+                    <div className="mb-3 form-check">
+                      <input
+                        ref={addInputs}
+                        type="checkbox"
+                        className="form-check-input"
+                        id="isAdmin"
+                        name="isAdmin"
+                        onChange={handleCheckboxChange}
+                      />
+                      <label className="form-check-label" htmlFor="isAdmin">
+                        Administrateur
+                      </label>
+                    </div>
 
+                    {showCodeInput && (
+                      <div className="mb-3">
+                        <label htmlFor="adminCode" className="form-label">
+                          Code administrateur
+                        </label>
+                        <input
+                          ref={addInputs}
+                          name="adminCode"
+                          type="password"
+                          className="form-control"
+                          id="adminCode"
+                        />
+                      </div>
+                    )}
+
+                    <button className="btn btn-primary">Se connecter</button>
+                  </form>
                 </div>
               </div>
             </div>
