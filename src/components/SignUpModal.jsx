@@ -65,7 +65,7 @@ export default function SignUpModal() {
   return (
     <>
       {modalState.signUpModal && (
-        <div className="position-fixed top-0 vw-100 vh-100">
+        <div className="position-fixed top-0 vw-100 vh-100" style={{ zIndex: 1000 }}>
           <div
           onClick={closeModal}
           className="w-100 h-100 bg-dark bg-opacity-75">
