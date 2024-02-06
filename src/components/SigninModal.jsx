@@ -152,14 +152,25 @@ export default function SignInModal() {
                         <label htmlFor="adminCode" className="form-label">
                           Code administrateur
                         </label>
+                        <div className="input-group">
                         <input
                           ref={addInputs}
                           name="adminCode"
-                          type="password"
                           className="form-control"
+                          required
+                          type={passwordFieldType}
                           id="adminCode"
                         />
-                      </div>
+                        <button
+                          type="button"
+                          className="btn btn-primary"
+                          onClick={togglePasswordVisibility}
+                        >
+                          👁️
+                        </button>
+                      
+                        </div>
+                        </div>
                     )}
 
                     <button className="btn btn-primary">Se connecter</button>
