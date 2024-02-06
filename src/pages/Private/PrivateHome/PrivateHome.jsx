@@ -1,9 +1,20 @@
 import React from 'react'
+import NavigateLink from '../../../components/NavigateLink';
 
 export default function PrivateHome() {
   return (
     <>
-      <h1>Private page home for user </h1>
+
+      <section className='container'>
+      <div className='row'>
+      <div className='col'>
+      <NavigateLink/>   
+      </div>
+      <div className='col'>
+          <h1>hello</h1>
+      </div>
+      </div>
+      </section>
     </>
   )
 }
