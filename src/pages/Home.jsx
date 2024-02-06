@@ -1,12 +1,16 @@
 import React, { useContext } from 'react'
 import { UserContext } from "../context/userContext"
 import Footer from '../components/footer'
+import NavbarDefault from '../components/NavbarDefault'
 
 export default function Home() {
   const { toggleModals } = useContext(UserContext)
   return (
     <>
       <section>
+        <div>
+        <NavbarDefault/>
+        </div>
         <div className='ms-4   mt-5'><h1 className='fw-bold'>Bienvenue sur Para Dish !</h1></div>
         <div className='ms-4 mt-5'>
           <p>Découvrez une expérience culinaire unique en explorant
