@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 import {signOut} from "firebase/auth"
 import { useNavigate } from 'react-router-dom'
 import {auth} from "../firebase-config"
-import logo from './logo.png'
+import logo from '../assets/logo.png'
 import '../Style/NavBar.css'; 
 
 export default function Navbar() {
@@ -23,7 +23,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="navbar navbar-light px-4 " id='nav'>
+    <nav className="navbar navbar-light px-4 " id='nav' style={{zIndex:1}}>
       <Link to="/" className="navbar-brand">
       <img className='logonav' src={logo}  alt="Logo" />
     </Link>
