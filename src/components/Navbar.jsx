@@ -23,7 +23,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="navbar navbar-light px-4" id='nav'>
+    <nav className="navbar navbar-light px-4 " id='nav'>
       <Link to="/" className="navbar-brand">
       <img className='logonav' src={logo}  alt="Logo" />
     </Link>
