@@ -10,7 +10,6 @@ import Contact from './pages/Private/PrivateHome/user/Contact';
 import Commande from './pages/Private/PrivateHome/user/Commande';
 import Navbar from './components/Navbar';
 import AdminHome from './pages/Private/PrivateHome/admin/AdminHome';
-import Pagination from './service/Pagination';
 import Loader from '../src/components/Loader';
 
 function App() {
