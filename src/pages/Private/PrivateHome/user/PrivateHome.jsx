@@ -1,6 +1,6 @@
 import React from 'react'
 import NavigateLink from '../../../../components/NavigateLink';
-import Dashboard  from '../../../../components/DashBoard';
+import Dashboard  from '../../../../components/DashboardForUser';
 
 export default function PrivateHome() {
   return (
