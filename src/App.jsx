@@ -5,7 +5,7 @@ import SignUpModal from './components/SignUpModal';
 import SigninModal from './components/SigninModal';
 import Private from './pages/Private/Private';
 import PrivateHome from './pages/Private/PrivateHome/user/PrivateHome';
-import Menu from './pages/Private/PrivateHome/user/menu';
+import Menu from './pages/Private/PrivateHome/user/MenuForUser';
 import Contact from './pages/Private/PrivateHome/user/Contact';
 import Commande from './pages/Private/PrivateHome/user/Commande';
 import Navbar from './components/Navbar';
