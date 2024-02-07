@@ -1,7 +1,7 @@
 import React from 'react'
 import NavigateLink from '../../../../components/NavigateLink';
 import SearchPage from '../../../../components/SearchPage'
-import CardForProduct from '../../../../components/cardForProduct';
+import CardForProduct from '../../../../components/CardProduct';
 
 export default function Menu() {
   return (
