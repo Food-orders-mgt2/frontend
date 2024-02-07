@@ -33,7 +33,7 @@ function App() {
       <SignUpModal />
       <SigninModal />
       {location.pathname !== '/' && <Navbar />}
-
+      {loading && <Loader />}
 
       <Routes>
         <Route path="/" element={<Home />} />
