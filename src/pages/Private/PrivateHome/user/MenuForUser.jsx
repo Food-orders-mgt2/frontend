@@ -1,5 +1,7 @@
 import React from 'react'
 import NavigateLink from '../../../../components/NavigateLink';
+import SearchPage from '../../../../components/SearchPage'
+import CardForProduct from '../../../../components/cardForProduct';
 
 export default function Menu() {
   return (
@@ -9,7 +11,13 @@ export default function Menu() {
       <NavigateLink/>
       </div>
       <div style={{marginLeft:'120px'}} id='space-data'>
-         <h1>List menu </h1>
+         <SearchPage/>
+         <div className='row gap-2'>
+         <CardForProduct/>
+         <CardForProduct/>
+         <CardForProduct/>
+         <CardForProduct/>
+         </div>
       </div>
     </div>
     </>
