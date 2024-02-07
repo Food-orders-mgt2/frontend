@@ -1,35 +1,31 @@
 .card-body {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    max-width: 12cm;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 1px 1px 6px;
-    margin: 10px; 
-  }
-  
-  @media screen and (min-width: 600px) {
-    .card-body {
-      flex-direction: row;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  max-width: 12cm;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
 
-  .img-product {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px; 
-    max-width: 4cm; 
-    max-height: 4cm; 
-    object-fit: cover; 
-
+@media screen and (min-width: 600px) {
+  .card-body {
+    flex-direction: row;
   }
-  
-  @media screen and (min-width: 600px) {
-    .card-body {
-      flex-direction: row;
-    }
-  }
+}
 
-  
-  
+.img-product {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  max-width: 4cm;
+  max-height: 4cm;
+  object-fit: cover;
+
+}
+
+@media screen and (min-width: 600px) {
+  .card-body {
+    flex-direction: row;
+  }
+}

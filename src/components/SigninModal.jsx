@@ -28,7 +28,7 @@ export default function SignInModal() {
 
     try {
       let code = "";
-      
+
       if (isAdmin) {
         code = inputs.current[3].value.toLowerCase();
 
@@ -153,24 +153,24 @@ export default function SignInModal() {
                           Code administrateur
                         </label>
                         <div className="input-group">
-                        <input
-                          ref={addInputs}
-                          name="adminCode"
-                          className="form-control"
-                          required
-                          type={passwordFieldType}
-                          id="adminCode"
-                        />
-                        <button
-                          type="button"
-                          className="btn btn-primary"
-                          onClick={togglePasswordVisibility}
-                        >
-                          👁️
-                        </button>
-                      
+                          <input
+                            ref={addInputs}
+                            name="adminCode"
+                            className="form-control"
+                            required
+                            type={passwordFieldType}
+                            id="adminCode"
+                          />
+                          <button
+                            type="button"
+                            className="btn btn-primary"
+                            onClick={togglePasswordVisibility}
+                          >
+                            👁️
+                          </button>
+
                         </div>
-                        </div>
+                      </div>
                     )}
 
                     <button className="btn btn-primary">Se connecter</button>

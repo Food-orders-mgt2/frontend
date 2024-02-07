@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <section>
         <div>
-        <NavbarDefault/>
+          <NavbarDefault />
         </div>
         <div className='ms-4   mt-5'><h1 className='fw-bold'>Bienvenue sur Para Dish !</h1></div>
         <div className='ms-4 mt-5'>
@@ -27,12 +27,12 @@ export default function Home() {
           <button
             onClick={() => toggleModals("signUp")}
             className="btn btn-outline-primary ms-4 rounded-pill ">
-           S'inscrire
+            S'inscrire
           </button>
-        </div> 
+        </div>
         <div className='footers'>
-        <Footer/>
-        </div> 
+          <Footer />
+        </div>
       </section>
     </>
   )

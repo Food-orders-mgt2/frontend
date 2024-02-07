@@ -1,0 +1,67 @@
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 30px;
+}
+
+button {
+  background-color: #41a7fa;
+  color: #fff;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 8px;
+}
+
+button:hover {
+  background-color: #307bb0;
+}
+
+.Commande {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+
+@media screen and (max-width: 600px) {
+  form {
+    padding: 15px;
+  }
+
+  input,
+  select {
+    height: 40px;
+  }
+
+  button {
+    margin-bottom: 12px;
+  }
+}
