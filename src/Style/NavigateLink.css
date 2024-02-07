@@ -24,16 +24,13 @@
   
   .nav-link:hover {
     border-radius: 5px;
+    color: aliceblue;
   }
   
   .nav-link span {
     margin-top: 5px;
     font-size: 16px;
     white-space: nowrap;
-    color: white !important;
-  }
-  .nav-link span:hover{
-    color: orangered !important;
   }
   .flex-row {
     display: flex;
@@ -50,9 +47,12 @@
     display: none;
   }
 }
-.icons{
-  color: aliceblue !important;
+.nav-link.active .icons {
+  color: orange;
 }
-.icons:hover{
-  color: orangered !important;
+
+
+.nav-link.active {
+  color: orange; 
 }
+
