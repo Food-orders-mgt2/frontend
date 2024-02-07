@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUtensils, faGift, faMoneyBillWave, faChartBar } from '@fortawesome/free-solid-svg-icons';
-import '../Style/dashboard.css';
+import '../Style/DashboardForUser.css';
 
 export default function Dashboard() {
     return (
