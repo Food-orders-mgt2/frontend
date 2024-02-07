@@ -28,8 +28,12 @@
   
   .nav-link span {
     margin-top: 5px;
-    font-size: 12px;
+    font-size: 16px;
     white-space: nowrap;
+    color: white !important;
+  }
+  .nav-link span:hover{
+    color: orangered !important;
   }
   .flex-row {
     display: flex;
@@ -41,3 +45,14 @@
     padding-right: 0 !important;
   }
   
+@media (max-width: 768px) {
+  .nav-link .nav-text {
+    display: none;
+  }
+}
+.icons{
+  color: aliceblue !important;
+}
+.icons:hover{
+  color: orangered !important;
+}
