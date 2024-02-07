@@ -22,6 +22,7 @@ export default function CommandeNourriture() {
     return (
         <div className="Commande">
             <form onSubmit={handleSubmit}>
+                <h1>Votre commande </h1>
                 <div>
                     <label htmlFor="nomClient">Nom  :</label>
                     <input

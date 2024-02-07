@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #41a7fa;
+  --hover-color: #307bb0;
+  --border-color: #ccc;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
 h1 {
   text-align: center;
   color: #333;
@@ -6,6 +13,7 @@ h1 {
 form {
   max-width: 600px;
   margin: 0 auto;
+  padding: 10px; /* Ajout d'une marge intérieure */
 }
 
 div {
@@ -22,15 +30,15 @@ label {
 input,
 select {
   width: 100%;
-  padding: 5px;
+  padding: 2px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   height: 30px;
 }
 
 button {
-  background-color: #41a7fa;
+  background-color: var(--primary-color);
   color: #fff;
   padding: 5px;
   font-size: 16px;
@@ -42,14 +50,13 @@ button {
 }
 
 button:hover {
-  background-color: #307bb0;
+  background-color: var(--hover-color);
 }
 
 .Commande {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px var(--box-shadow-color);
   border-radius: 20px;
 }
-
 
 @media screen and (max-width: 600px) {
   form {
