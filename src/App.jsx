@@ -32,7 +32,6 @@ function App() {
     <>
       <SignUpModal />
       <SigninModal />
-      <Pagination />
       {location.pathname !== '/' && <Navbar />}
       {loading && <Loader />}
 
