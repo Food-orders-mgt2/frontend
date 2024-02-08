@@ -1,20 +1,42 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
 const CartContext = createContext();
 
-export  const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD_TO_CART':
+      return {
+        ...state,
+        cartItems: [...state.cartItems, { ...action.payload, id: state.cartItems.length + 1 }],
+      };
+    case 'CLEAR_CART':
+      return {
+        ...state,
+        cartItems: [],
+      };
+    default:
+      return state;
+  }
+};
+
+export const CartProvider = ({ children }) => {
+  const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  const [state, dispatch] = useReducer(cartReducer, { cartItems: storedCartItems });
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+  }, [state.cartItems]);
 
   const addToCart = (product) => {
-    setCartItems([...cartItems, { ...product, id: cartItems.length + 1 }]);
+    dispatch({ type: 'ADD_TO_CART', payload: product });
   };
 
   const clearCart = () => {
-    setCartItems([]);
+    dispatch({ type: 'CLEAR_CART' });
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, clearCart }}>
+    <CartContext.Provider value={{ cartItems: state.cartItems, addToCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
