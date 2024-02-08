@@ -125,7 +125,7 @@ export default function SignUpModal() {
 
                     <div className="mb-3">
                       <label htmlFor="repeatPwd" className="form-label">
-                        Répéter le mot de passe
+                        Confirmer le mot de passe
                       </label>
                       <div className="input-group">
                         <input
