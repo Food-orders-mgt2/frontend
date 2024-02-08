@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const CartContext = createContext();
 
@@ -7,8 +8,13 @@ const cartReducer = (state, action) => {
     case 'ADD_TO_CART':
       return {
         ...state,
-        cartItems: [...state.cartItems, { ...action.payload, id: state.cartItems.length + 1 }],
+        cartItems: [...state.cartItems, { ...action.payload, id: uuidv4() }],
       };
+      case 'REMOVE_FROM_CART':
+        return {
+          ...state,
+          cartItems: state.cartItems.filter(item => item.id !== action.payload),
+        };  
     case 'CLEAR_CART':
       return {
         ...state,
@@ -35,8 +41,17 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: 'CLEAR_CART' });
   };
 
+  const calculateTotal = () => {
+    return state.cartItems.reduce((total, item) => total + item.price, 0);
+  };
+
+  const removeFromCart = (productId) => {
+    dispatch({ type: 'REMOVE_FROM_CART', payload: productId });
+  };
+
+
   return (
-    <CartContext.Provider value={{ cartItems: state.cartItems, addToCart, clearCart }}>
+    <CartContext.Provider value={{ cartItems: state.cartItems, addToCart, clearCart, calculateTotal ,removeFromCart }}>
       {children}
     </CartContext.Provider>
   );

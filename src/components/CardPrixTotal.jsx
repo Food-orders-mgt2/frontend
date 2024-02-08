@@ -1,13 +1,13 @@
 import React from 'react';
 import '../Style/CardPrixTotal.css'
-const PriceDashboard = ({ total }) => {
+const PriceDashboard = () => {
   return (
     <div className="container mt-5">
       <div className="card">
         <div className="card-body prix">
           <h5 className="card-title">Prix Total : </h5>
           <div className="price-dashboard">
-            <h1 className="display-4">{total} 0 $</h1>
+             <h1>11£</h1>
           </div>
         </div>
       </div>
