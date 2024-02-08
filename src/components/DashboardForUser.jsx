@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faUtensils, faGift, faMoneyBillWave, faChartBar } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUtensils, faGift, faCheckCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import '../Style/DashboardForUser.css';
 
 export default function Dashboard() {
@@ -33,9 +33,9 @@ export default function Dashboard() {
         </div>
         <div className="col-md-6">
           <div className="dashboard-card">
-            <FontAwesomeIcon icon={faMoneyBillWave} className="dashboard-icon" />
-            <h2 className='h2-d'>Solde</h2>
-            {"2000$"}
+          <FontAwesomeIcon icon={faCheckCircle} className="dashboard-icon" />
+            <h2 className='h2-d'>Commande acceptée</h2>
+            {"2"}
           </div>
         </div>
       </div>
@@ -43,9 +43,8 @@ export default function Dashboard() {
       <div className="row mt-3">
         <div className="col-md-12">
           <div className="dashboard-card">
-            <FontAwesomeIcon icon={faChartBar} className="dashboard-icon" />
-            <h2 className='h2-d'>Statistiques de Consommation</h2>
-            {"10%"}
+            <FontAwesomeIcon icon={faUser} className="dashboard-icon" />
+            <h2 className='h2-d'>Rakotonirina Tsiaro </h2>
           </div>
         </div>
       </div>
