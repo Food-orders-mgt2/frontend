@@ -1,0 +1,28 @@
+.price-card {
+    width: 200px;
+    height: 150px; 
+    margin: auto;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .card-title {
+    color: #007bff;
+  }
+  .prix{
+    max-width: 5cm;
+  }
+  .card{
+    border: none;
+  }
+  .price-dashboard {
+    margin-top: 20px;
+  }
+  
+  .display-4 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #28a745;
+  }
+  

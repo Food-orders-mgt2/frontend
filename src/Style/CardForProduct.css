@@ -29,3 +29,8 @@
     flex-direction: row;
   }
 }
+
+.white-background {
+  background-color: white;
+}
+
