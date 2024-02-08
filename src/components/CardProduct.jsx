@@ -1,12 +1,25 @@
-import React from "react";
-import '../Style/CardForProduct.css'
-import product from '../assets/product.jpg'
+import React, { useState } from 'react';
+import product from '../assets/product.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-
+import { faStar, faShoppingCart, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { useCart } from '../context/CartContext';
+import '../Style/CardForProduct.css';
 
 export default function CardForProduct() {
-  return <>
+  const [iconButton, setIconButton] = useState(<FontAwesomeIcon icon={faShoppingCart} style={{color:'yellow'}} />);
+  const { addToCart } = useCart();
+
+  const ajouterAuPanier = () => {
+    addToCart({
+      image: product,
+      nom: 'Légumes',
+      prix: 223,
+      etat: iconButton.props.icon === faCheckCircle ? 'Ajouté' : 'En attente',
+    });
+    setIconButton(<FontAwesomeIcon icon={faCheckCircle} style={{ color: "green" }} />);
+  };
+
+  return (
     <div className="card-body">
       <div className="col">
         <img className='img-product' src={product} alt="Logo" />
@@ -14,12 +27,18 @@ export default function CardForProduct() {
       </div>
       <div className="col">
         <h5 className="card-title">Légumes </h5>
-        <p className="card-text">Découvrez une explosion de saveurs avec nos légumes délicieux .</p><div>
-          <FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />
-          <FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />
-          <FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />
+        <p className="card-text">Découvrez une explosion de saveurs avec nos légumes délicieux .</p>
+        <div className="row">
+          <div className="col">
+            <FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />
+            <FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />
+            <FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />
+          </div>
+          <div className="col">
+            <button onClick={ajouterAuPanier} className="cart-button white-background " >
+              {iconButton}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </>
-}
+    </div>)}
