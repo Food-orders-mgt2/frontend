@@ -6,7 +6,7 @@ import { useCart } from '../context/CartContext';
 import '../Style/CardForProduct.css';
 
 export default function CardForProduct() {
-  const [iconButton, setIconButton] = useState(<FontAwesomeIcon icon={faShoppingCart} style={{color:'yellow'}} />);
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
   const { addToCart } = useCart();
 
   const ajouterAuPanier = () => {
@@ -14,9 +14,11 @@ export default function CardForProduct() {
       image: product,
       nom: 'Légumes',
       prix: 223,
-      etat: iconButton.props.icon === faCheckCircle ? 'Ajouté' : 'En attente',
+      etat: isAddedToCart ? 'Ajouté' : 'En attente',
     });
-    setIconButton(<FontAwesomeIcon icon={faCheckCircle} style={{ color: "green" }} />);
+
+    setIsAddedToCart(true);
+    console.log("Produit ajouté au panier :", product);
   };
 
   return (
@@ -35,10 +37,16 @@ export default function CardForProduct() {
             <FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />
           </div>
           <div className="col">
-            <button onClick={ajouterAuPanier} className="cart-button white-background " >
-              {iconButton}
+            <button onClick={ajouterAuPanier} className="cart-button white-background " disabled={isAddedToCart}>
+              {isAddedToCart ? (
+                <FontAwesomeIcon icon={faCheckCircle} style={{ color: "green" }} />
+              ) : (
+                <FontAwesomeIcon icon={faShoppingCart} style={{ color: 'yellow' }} />
+              )}
             </button>
           </div>
         </div>
       </div>
-    </div>)}
+    </div>
+  );
+}
