@@ -102,7 +102,7 @@ export default function SignUpModal() {
 
                     <div className="mb-3">
                       <label htmlFor="signUpPwd" className="form-label">
-                        Password
+                        Mot de passe
                       </label>
                       <div className="input-group">
                         <input
@@ -125,7 +125,7 @@ export default function SignUpModal() {
 
                     <div className="mb-3">
                       <label htmlFor="repeatPwd" className="form-label">
-                        Repeat Password
+                        Répéter le mot de passe
                       </label>
                       <div className="input-group">
                         <input

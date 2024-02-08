@@ -13,7 +13,7 @@ export default function CardForProduct() {
     addToCart({
       image: product,
       nom: 'Légumes',
-      prix: 223,
+      prix: 223.00,
       etat: isAddedToCart ? 'Ajouté' : 'En attente',
     });
 
@@ -25,7 +25,7 @@ export default function CardForProduct() {
     <div className="card-body">
       <div className="col">
         <img className='img-product' src={product} alt="Logo" />
-        <p className="mt-3">Prix: {223}$</p>
+        <p className="mt-3">Prix: {223.00}$</p>
       </div>
       <div className="col">
         <h5 className="card-title">Légumes </h5>

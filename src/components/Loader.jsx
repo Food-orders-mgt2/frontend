@@ -4,7 +4,7 @@ import '../Style/Loader.css';
 const Loader = () => {
     return (
         <div className="loader-container">
-            <div class="spinner-border text-primary"></div>
+            <div className="spinner-border text-primary"></div>
         </div>
     );
 };
