@@ -4,7 +4,7 @@ import moment from 'moment';
 
 
 export default function CommandeNourriture() {
-  const [nomClient, setNomClient] = useState('');
+  const [Lieu, setLieu] = useState('');
   const [FraisDeLivraison, setFraisDeLivraison] = useState('');
   const [dateCommande, setDateCommande] = useState(moment().format('YYYY-MM-DD'));
   const [dateLivraison, setDateLivraison] = useState('');
@@ -13,7 +13,7 @@ export default function CommandeNourriture() {
   const handleCommander = (e) => {
     e.preventDefault();
     console.log('Commande envoyée avec succès !');
-    setNomClient('');
+    setLieu('');
     setFraisDeLivraison('');
     setDateLivraison('');
     setTypePaiement('cash');
@@ -23,11 +23,11 @@ export default function CommandeNourriture() {
     <form onSubmit={handleCommander}>
       <div className="commande-bar">
         <div className="commande-details">
-          <label>Nom du client:
+          <label>Lieu :
             <input
               type="text"
-              value={nomClient}
-              onChange={(e) => setNomClient(e.target.value)}
+              value={Lieu}
+              onChange={(e) => setLieu(e.target.value)}
             />
           </label>
           <label>Frais de livraison :
