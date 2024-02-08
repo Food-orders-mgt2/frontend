@@ -74,6 +74,18 @@ export default function SignUpModal() {
 
                 <div className="modal-body">
                   <form ref={formRef} onSubmit={handleForm} className="sign-up-form">
+                  <div className="mb-3">
+                      <label htmlFor="signUpEmail" className="form-label">
+                        Non Utilisateur:
+                      </label>
+                      <input
+                        name="name"
+                        required
+                        type="name"
+                        className="form-name"
+                        id="nameModal"
+                      />
+                    </div>
                     <div className="mb-3">
                       <label htmlFor="signUpEmail" className="form-label">
                         Email address
