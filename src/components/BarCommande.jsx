@@ -5,7 +5,7 @@ import moment from 'moment';
 
 export default function CommandeNourriture() {
   const [nomClient, setNomClient] = useState('');
-  const [listeProduits, setListeProduits] = useState('');
+  const [FraisDeLivraison, setFraisDeLivraison] = useState('');
   const [dateCommande, setDateCommande] = useState(moment().format('YYYY-MM-DD'));
   const [dateLivraison, setDateLivraison] = useState('');
   const [typePaiement, setTypePaiement] = useState('cash');
@@ -14,7 +14,7 @@ export default function CommandeNourriture() {
     e.preventDefault();
     console.log('Commande envoyée avec succès !');
     setNomClient('');
-    setListeProduits('');
+    setFraisDeLivraison('');
     setDateLivraison('');
     setTypePaiement('cash');
   };
@@ -30,11 +30,11 @@ export default function CommandeNourriture() {
               onChange={(e) => setNomClient(e.target.value)}
             />
           </label>
-          <label>Liste des produits:
+          <label>Frais de livraison :
             <input
               type="text"
-              value={listeProduits}
-              onChange={(e) => setListeProduits(e.target.value)}
+              value={FraisDeLivraison}
+              onChange={(e) => setFraisDeLivraison(e.target.value)}
             />
           </label>
           <label>Date de commande:
