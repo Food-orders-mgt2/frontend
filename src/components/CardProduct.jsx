@@ -10,15 +10,17 @@ export default function CardForProduct() {
   const { addToCart } = useCart();
 
   const ajouterAuPanier = () => {
-    addToCart({
+    const nouveauProduit = {
       image: product,
       nom: 'Légumes',
       prix: 223.00,
       etat: isAddedToCart ? 'Ajouté' : 'En attente',
-    });
-
+    };
+    addToCart(nouveauProduit);
+  
     setIsAddedToCart(true);
-    console.log("Produit ajouté au panier :", product);
+    console.log("Produit ajouté au panier :", nouveauProduit);
+  
   };
 
   return (

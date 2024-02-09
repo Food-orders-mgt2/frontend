@@ -47,18 +47,16 @@ export const CartProvider = ({ children }) => {
   };
 
   const calculateTotal = () => {
-    return state.cartItems.reduce((total, item) => {
-      if (typeof item.price === 'number' && !isNaN(item.price)) {
-        return total + item.price;
-      } else {
-        console.error(`Invalid price for item with id ${item.id}`);
-        return total;
-      }
+    return state.cartItems.reduce((total, item) => { 
+        const price = Number(item.prix);
+        if (typeof price === 'number' && !isNaN(price)) {
+            return total + price;
+        } else {
+            console.error(`Invalid price for item with id ${item.id}`);
+            return total;
+        }
     }, 0);
-  };
-  
-  console.log(calculateTotal);
-
+};
   const removeFromCart = (productId) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: productId });
   };
