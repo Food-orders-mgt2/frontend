@@ -8,4 +8,13 @@ export default defineConfig({
       '@components': '/src/components',
     },
   },
+  server: {
+    proxy: {
+      '/dish': {
+        target: 'https://para-dish-back.onrender.com',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/dish/, ''),
+      },
+    },
+  },
 });

@@ -6,7 +6,6 @@ import { UserContextProvider } from "./context/userContext";
 import { CartProvider } from "./context/CartContext"; 
 
 const root = createRoot(document.getElementById("root"));
-
 root.render(
   <BrowserRouter>
     <UserContextProvider>

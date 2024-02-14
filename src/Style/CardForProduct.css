@@ -34,3 +34,8 @@
   background-color: white;
 }
 
+.contenair {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;  
+}
