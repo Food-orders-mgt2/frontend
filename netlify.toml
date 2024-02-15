@@ -5,6 +5,6 @@ status = 200
 
 [[redirects]]
 from = "/private/private-home/menu"
-to = "https://para-dish-back.onrender.com/dish"
+to = "/private/private-home/menu"
 status = 200
 force = true
