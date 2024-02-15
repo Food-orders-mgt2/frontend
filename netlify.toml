@@ -1,10 +1,10 @@
 [[redirects]]
-from = "/*"
+from = "/"
 to = "/index.html"
 status = 200
 
 [[redirects]]
-from = "/dish/dish"
+from = "/private/private-home/menu"
 to = "https://para-dish-back.onrender.com/dish"
 status = 200
 force = true
