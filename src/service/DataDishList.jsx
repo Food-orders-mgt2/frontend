@@ -12,8 +12,13 @@ export default class DishList extends Component {
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
+      }
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+          return response.json();
+      } else {
+          throw new Error('Invalid content type: ' + contentType);
+      }
       }) 
       .then(data => {
         console.log(data);
