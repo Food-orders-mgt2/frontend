@@ -8,26 +8,27 @@ export default class DishList extends Component {
   };
 
   componentDidMount() {
-    fetch('/dish/dish')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const contentType = response.headers.get('content-type');
-      if (contentType && contentType.includes('application/json')) {
-          return response.json();
-      } else {
-          throw new Error('Invalid content type: ' + contentType);
-      }
-      }) 
-      .then(data => {
-        console.log(data);
-        this.setState({ dishes: data });
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error.message);
-      });
-  }
+    fetch("/dish/dish", {
+        headers: {
+            Accept: 'application/json',
+        },
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            this.setState({
+                dishes: data
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error.message);
+        });
+}
 
   render() {
     return (      
