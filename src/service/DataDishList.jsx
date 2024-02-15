@@ -13,12 +13,17 @@ export default class DishList extends Component {
             Accept: 'application/json',
         },
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
+    .then(response => {
+      console.log("Full response:", response);
+      if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text(); 
+  })
+  .then(text => {
+      console.log("Response text:", text);
+      return JSON.parse(text); 
+  })
         .then(data => {
             console.log(data);
             this.setState({
@@ -27,6 +32,8 @@ export default class DishList extends Component {
         })
         .catch(error => {
             console.error("Error fetching data:", error.message);
+            response.text().then(text => console.log("Raw response text:", text));
+
         });
 }
 
