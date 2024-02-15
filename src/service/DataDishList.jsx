@@ -14,28 +14,24 @@ export default class DishList extends Component {
         },
     })
     .then(response => {
-      console.log("Full response:", response);
-      if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.text(); 
-  })
-  .then(text => {
-      console.log("Response text:", text);
-      return JSON.parse(text); 
-  })
-        .then(data => {
-            console.log(data);
-            this.setState({
-                dishes: data
-            });
-        })
-        .catch(error => {
-            console.error("Error fetching data:", error.message);
-            response.text().then(text => console.log("Raw response text:", text));
-
+        console.log("Full response:", response);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        this.setState({
+            dishes: data
         });
+    })
+    .catch(error => {
+        console.error("Error fetching data:", error.message);
+        error.response.text().then(text => console.log("Raw response text:", text));
+    });
 }
+
 
   render() {
     return (      

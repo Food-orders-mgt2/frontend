@@ -5,6 +5,7 @@ status = 200
 
 [[redirects]]
 from = "/private/private-home/menu"
-to = "/private/private-home/menu"
+to = "index.html"
 status = 200
 force = true
+headers = { "Content-Type" = "application/json" }
