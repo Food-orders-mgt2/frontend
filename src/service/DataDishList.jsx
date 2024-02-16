@@ -2,35 +2,35 @@ import React, { Component } from 'react';
 import CardForProduct from '../components/CardProduct';
 import '../Style/CardForProduct.css';
 
-export default class DishList extends Component {
+export default class DishList extends Component{
   state = {
     dishes: [],
   };
 
+  
   componentDidMount() {
-    let responseClone;
+    const url = '/api/dish';
 
-    fetch('/dish/dish')
+    let fetchData = {
+      method: 'GET',
+      mode: 'no-cors',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': '*/*'
+      })
+    };
+    
+    
+    
+    fetch(url,fetchData)
       .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        responseClone = response.clone();
         return response.json();
       })
       .then(data => {
-        console.log(data);
         this.setState({ dishes: data });
       })
       .catch(error => {
-        console.error('Error fetching data:', error.message);
-
-        if (responseClone) {
-          responseClone.text().then(bodyText => {
-            console.log('Received the following instead of valid JSON:', bodyText);
-          });
-        }
+        console.error('Error fetching data:', error.message)
       });
   }
 
@@ -44,3 +44,4 @@ export default class DishList extends Component {
     );
   }
 }
+ 
