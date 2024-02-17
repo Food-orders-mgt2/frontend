@@ -11,7 +11,6 @@ import Commande from './pages/Private/PrivateHome/user/Commande';
 import Navbar from './components/Navbar';
 import AdminHome from './pages/Private/PrivateHome/admin/AdminHome';
 import Loader from '../src/components/Loader';
-import { Api } from './service/Api';
 
 function App() {
   const location = useLocation();
@@ -38,7 +37,6 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/test" element={<Api />} />
         <Route path="/private" element={<Private />}>
           {/* Pour les clients */}
           <Route path="/private/private-home" element={<PrivateHome />} />
