@@ -9,7 +9,7 @@ export default class DishList extends Component{
 
   
   componentDidMount() {
-    const url = '/api/dish';
+    const url = 'https://para-dish-back.onrender.com/dish';
 
     let fetchData = {
       method: 'GET',
