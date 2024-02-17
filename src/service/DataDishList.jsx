@@ -27,11 +27,11 @@ export default class DishList extends Component {
 
   render() {
     return (
-      <div className='container' style={{ maxHeight: '400px', overflowY: 'scroll', marginRight: 0, paddingRight: 0 }}>
-        {this.state.dishes.map(dish => (
-          <CardForProduct key={dish.id} dish={dish} />
-        ))}
-      </div>
+      <div className='container' style={{ maxHeight: '400px', overflowY: 'scroll', marginRight: 0, paddingRight: 0, display: 'flex', flexWrap: 'wrap' }}>
+      {this.state.dishes.map(dish => (
+        <CardForProduct key={dish.id} dish={dish} style={{ flex: '1 0 200px', margin: '8px' }} />
+      ))}
+    </div>    
     );
   }
 }
