@@ -10,9 +10,9 @@ const PriceDashboard = () => {
   return (
     <div className="container mt-5">
       <div className="card">
-        <div className="card-body prix">
-          <h5 className="card-title">Prix Total :</h5>
+        <div className="card-body prix row">
           <div className="price-dashboard">
+          <h5 className="card-title">Prix Total :</h5>
             <span className="price-icon">
               <FontAwesomeIcon icon={faDollarSign} style={{ color: 'orange', marginRight: '5px' }} />
             </span>

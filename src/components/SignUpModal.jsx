@@ -76,7 +76,7 @@ export default function SignUpModal() {
                   <form ref={formRef} onSubmit={handleForm} className="sign-up-form">
                   <div className="mb-3">
                       <label htmlFor="signUpEmail" className="form-label">
-                        Non Utilisateur:
+                        Nom d'utilisateur
                       </label>
                       <input
                         name="name"
@@ -88,7 +88,7 @@ export default function SignUpModal() {
                     </div>
                     <div className="mb-3">
                       <label htmlFor="signUpEmail" className="form-label">
-                        Email address
+                        adresse e-mail
                       </label>
                       <input
                         ref={addInputs}
@@ -102,7 +102,7 @@ export default function SignUpModal() {
 
                     <div className="mb-3">
                       <label htmlFor="signUpPwd" className="form-label">
-                        Mot de passe
+                        Mots de passe
                       </label>
                       <div className="input-group">
                         <input

@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUtensils, faGift, faCheckCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import '../Style/DashboardForUser.css';
+import { UserContext } from '../context/userContext';
 
 export default function Dashboard() {
+
+  const { currentUser } = useContext(UserContext);
+
+  const username = currentUser ? currentUser.username : '';
+
+  currentUser
   return (
     <div className="containers mt-5" >
       <div className="row">
@@ -44,7 +51,7 @@ export default function Dashboard() {
         <div className="col-md-12">
           <div className="dashboard-card">
             <FontAwesomeIcon icon={faUser} className="dashboard-icon" />
-            <h2 className='h2-d'>Rakotonirina Tsiaro </h2>
+            <h2 className='h2-d'>Username: {username}</h2>
           </div>
         </div>
       </div>

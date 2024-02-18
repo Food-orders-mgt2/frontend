@@ -1,13 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState} from "react";
 import saveOrder from "../service/SaveOrder";
-import { UserContext } from "../context/userContext"; 
 import '../Style/CommandeNourriture.css'
 import { useCart } from '../context/CartContext';
 import moment from 'moment';
 
 export default function CommandeNourriture() {
   const { calculateTotal } = useCart();
-  const { currentUser } = useContext(UserContext);
+  const { clearCart } = useCart();
   const [lieu, setLieu] = useState('');
   const [fraisDeLivraison, setFraisDeLivraison] = useState(4000);
   const [dateLivraison, setDateLivraison] = useState('');
@@ -33,8 +32,11 @@ export default function CommandeNourriture() {
       setFraisDeLivraison(4000);
       setDateLivraison('');
       setTypePaiement('Bank');
+      clearCart();
+      alert('Commande envoyée avec succès !');
       console.log('Commande envoyée avec succès !');
     } catch (error) {
+      alert("commande non envoyer, veuillez verifier vos information")
       console.error('Erreur lors de l\'envoi de la commande :', error.message);
     }
   };
