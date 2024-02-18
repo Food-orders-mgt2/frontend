@@ -9,3 +9,13 @@ to = "/index.html"
 status = 200
 force = true
 headers = { "Content-Type" = "application/json" }
+
+
+[[redirects]]
+from = "/private/private-home/commande"
+to = "/index.html"
+status = 200
+force = true
+headers = { "Content-Type" = "application/json" }
+
+
