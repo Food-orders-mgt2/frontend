@@ -11,7 +11,7 @@ export default function CardForProduct({ dish }) {
   const ajouterAuPanier = () => {
     if (dish && typeof dish.price === 'number') {
       const nouveauProduit = {
-        image: dish.image || '', // Utilisation de l'image fournie dans dish
+        image: dish.image || '', 
         nom: dish.name || 'Nom du produit par défaut',
         prix: dish.price,
         etat: isAddedToCart ? 'Ajouté' : 'En attente',
