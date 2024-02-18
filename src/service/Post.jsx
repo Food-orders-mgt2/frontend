@@ -3,9 +3,7 @@ export const postData = async (url, data) => {
       const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': '*/*',
-          'Host': 'para-dish-back.onrender.com'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
       });
@@ -19,7 +17,6 @@ export const postData = async (url, data) => {
     } catch (error) {
       console.error('Error:', error.message);
       console.error('Request Payload:', JSON.stringify(data));
-      console.error('Response Body:', await response.text()); // Log the response body
       throw error;
     }
   };

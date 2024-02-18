@@ -1,37 +1,39 @@
 import React, { useState, useContext } from "react";
-import moment from 'moment';
 import saveOrder from "../service/SaveOrder";
 import { UserContext } from "../context/userContext"; 
 import '../Style/CommandeNourriture.css'
+import { useCart } from '../context/CartContext';
+import moment from 'moment';
 
 export default function CommandeNourriture() {
-  const [Lieu, setLieu] = useState('');
-  const [FraisDeLivraison, setFraisDeLivraison] = useState('4000');
-  const [dateCommande, setDateCommande] = useState(moment().format('YYYY-MM-DD'));
-  const [dateLivraison, setDateLivraison] = useState('');
-  const [typePaiement, setTypePaiement] = useState('cash');
-
+  const { calculateTotal } = useCart();
   const { currentUser } = useContext(UserContext);
-  const userName = currentUser ? currentUser.displayName : 'Utilisateur anonyme';
-
-  const orderData = {
-    date_time: moment().format('YYYY-MM-DD HH:mm:ss'),
-    shipping_cost: FraisDeLivraison,
-    delivery_date_time: dateLivraison,
-    delivery_place: Lieu,
-    id_User: userName,
-    pay_mode: typePaiement
-  };
+  const [lieu, setLieu] = useState('');
+  const [fraisDeLivraison, setFraisDeLivraison] = useState(4000);
+  const [dateLivraison, setDateLivraison] = useState('');
+  const [typePaiement, setTypePaiement] = useState('Cash');
 
   const handleCommander = async (e) => {
     e.preventDefault();
+
+    const orderData = {
+      list_dish_id: "1,2,6",
+      total_price: +calculateTotal().toFixed(2),
+      date_time: moment().toISOString(),
+      shipping_cost: +fraisDeLivraison.toFixed(2),
+      delivery_date_time: dateLivraison,
+      delivery_address: lieu,
+      id_User: '137db6e1-d154-466f-aab6-85897c909599',
+      pay_mode: typePaiement
+    };
+
     try {
-      console.log('Commande envoyée avec succès !');
       await saveOrder(orderData);
       setLieu('');
-      setFraisDeLivraison('');
+      setFraisDeLivraison(4000);
       setDateLivraison('');
-      setTypePaiement('cash');
+      setTypePaiement('Bank');
+      console.log('Commande envoyée avec succès !');
     } catch (error) {
       console.error('Erreur lors de l\'envoi de la commande :', error.message);
     }
@@ -44,27 +46,20 @@ export default function CommandeNourriture() {
         <label>Lieu :
           <input
             type="text"
-            value={Lieu}
+            value={lieu}
             onChange={(e) => setLieu(e.target.value)}
           />
         </label>
         <label>Frais de livraison :
           <input
-            type="text"
-            value={FraisDeLivraison + ' Ar'}
-            onChange={(e) => setFraisDeLivraison(e.target.value)}
-          />
-        </label>
-        <label>Date de commande:
-          <input
-            type="date"
-            value={dateCommande}
-            onChange={(e) => setDateCommande(e.target.value)}
+            type="number"
+            value={fraisDeLivraison}
+            onChange={(e) => setFraisDeLivraison(+e.target.value)}
           />
         </label>
         <label>Date de livraison:
           <input
-            type="date"
+            type="datetime-local"
             value={dateLivraison}
             onChange={(e) => setDateLivraison(e.target.value)}
           />
@@ -74,8 +69,8 @@ export default function CommandeNourriture() {
             value={typePaiement}
             onChange={(e) => setTypePaiement(e.target.value)}
           >
-            <option value="cash">Cash</option>
-            <option value="bank">Bank</option>
+            <option value="Cash">Cash</option>
+            <option value="Bank">Bank</option>
             <option value="Mobile money">Mobile money</option>
           </select>
         </label>

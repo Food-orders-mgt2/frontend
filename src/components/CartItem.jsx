@@ -7,7 +7,7 @@ const CartItem = ({ product }) => {
   const { removeFromCart } = useCart();
 
   const annulerProduit = () => {
-    removeFromCart(product.id);  art
+    removeFromCart(product.id); 
   };
 
   return (
