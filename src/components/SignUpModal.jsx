@@ -39,7 +39,7 @@ export default function SignUpModal() {
     }
 
     try {
-      const cred = await signUp(username, email, password);
+      const cred = await signUp( email, password);
       formRef.current.reset();
       setValidation("");
       console.log(cred);

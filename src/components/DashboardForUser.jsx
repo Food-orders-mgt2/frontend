@@ -8,7 +8,7 @@ export default function Dashboard() {
 
   const { currentUser } = useContext(UserContext);
 
-  const username = currentUser ? currentUser.username : '';
+  const email = currentUser ? currentUser.email : '';
 
   currentUser
   return (
@@ -51,7 +51,7 @@ export default function Dashboard() {
         <div className="col-md-12">
           <div className="dashboard-card">
             <FontAwesomeIcon icon={faUser} className="dashboard-icon" />
-            <h2 className='h2-d'>Username: {username}</h2>
+            <h2 className='h2-d'>{email}</h2>
           </div>
         </div>
       </div>
