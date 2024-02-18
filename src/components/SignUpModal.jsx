@@ -22,10 +22,10 @@ export default function SignUpModal() {
     e.preventDefault();
 
     if (inputs.current[1].value.length < 6 || inputs.current[2].value.length < 6) {
-      setValidation("6 characters min");
+      setValidation("mots de passe invalide ");
       return;
     } else if (inputs.current[1].value !== inputs.current[2].value) {
-      setValidation("Passwords do not match");
+      setValidation("mots de passe non confirmé");
       return;
     }
 
@@ -38,11 +38,11 @@ export default function SignUpModal() {
       navigate("/private/private-home");
     } catch (err) {
       if (err.code === "auth/invalid-email") {
-        setValidation("Email format invalid");
+        setValidation("Email invalide");
       }
 
       if (err.code === "auth/email-already-in-use") {
-        setValidation("Email already used");
+        setValidation("Email deja prise");
       }
     }
   };
@@ -76,7 +76,7 @@ export default function SignUpModal() {
                   <form ref={formRef} onSubmit={handleForm} className="sign-up-form">
                   <div className="mb-3">
                       <label htmlFor="signUpEmail" className="form-label">
-                        Non Utilisateur:
+                        Nom d'utilisateur
                       </label>
                       <input
                         name="name"
@@ -88,7 +88,7 @@ export default function SignUpModal() {
                     </div>
                     <div className="mb-3">
                       <label htmlFor="signUpEmail" className="form-label">
-                        Email address
+                        adresse e-mail
                       </label>
                       <input
                         ref={addInputs}
@@ -102,7 +102,7 @@ export default function SignUpModal() {
 
                     <div className="mb-3">
                       <label htmlFor="signUpPwd" className="form-label">
-                        Mot de passe
+                        Mots de passe
                       </label>
                       <div className="input-group">
                         <input
@@ -125,7 +125,7 @@ export default function SignUpModal() {
 
                     <div className="mb-3">
                       <label htmlFor="repeatPwd" className="form-label">
-                        Confirmer le mot de passe
+                        Confirmer le mots de passe
                       </label>
                       <div className="input-group">
                         <input
