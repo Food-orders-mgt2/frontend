@@ -57,7 +57,7 @@ export default function CommandeNourriture() {
               onChange={(e) => setTypePaiement(e.target.value)}
             >
               <option value="cash">Cash</option>
-              <option value="bank">Banque</option>
+              <option value="bank">Mobile money</option>
             </select>
           </label>
         </div>

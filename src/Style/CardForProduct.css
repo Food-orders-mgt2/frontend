@@ -15,11 +15,9 @@
 }
 
 .img-product {
-  max-width: 100%;
-  height: auto;
+  width: 10vw;
+  height: 20vh;
   border-radius: 8px;
-  max-width: 4cm;
-  max-height: 4cm;
   object-fit: cover;
 
 }

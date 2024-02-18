@@ -10,7 +10,7 @@ const Navbar = () => {
     <section className="custom-navbar flex-column">
       <a href="/private/private-home" className={`nav-link flex-row gap-3 ${pathname === '/private/private-home' ? 'active' : ''}`}>
         <FontAwesomeIcon className='icons' icon={faHome} />
-        <span className="nav-text">Accueil</span>
+        <span className="nav-text">Acceuil</span>
       </a>
       <a href="/private/private-home/menu" className={`nav-link flex-row gap-3 ${pathname === '/private/private-home/menu' ? 'active' : ''}`}>
         <FontAwesomeIcon className='icons' icon={faUtensils} />
