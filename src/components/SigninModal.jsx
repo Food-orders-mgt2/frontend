@@ -38,6 +38,7 @@ export default function SignInModal() {
       }
 
       const cred = await signIn(email, password);
+      const username = email.split('@')[0]; // Récupérer l'username à partir de l'e-mail
 
       formRef.current.reset();
       setValidation("");

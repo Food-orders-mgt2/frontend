@@ -21,16 +21,25 @@ export default function SignUpModal() {
   const handleForm = async (e) => {
     e.preventDefault();
 
-    if (inputs.current[1].value.length < 6 || inputs.current[2].value.length < 6) {
-      setValidation("6 characters min");
+    const username = inputs.current[0].value;
+    const email = inputs.current[1].value;
+    const password = inputs.current[2].value;
+
+    if (username.trim() === "") {
+      setValidation("Nom d'utilisateur requis");
       return;
-    } else if (inputs.current[1].value !== inputs.current[2].value) {
-      setValidation("Passwords do not match");
+    }
+
+    if (password.length < 6 || inputs.current[3].value.length < 6) {
+      setValidation("6 caractères minimum pour le mot de passe");
+      return;
+    } else if (password !== inputs.current[3].value) {
+      setValidation("Les mots de passe ne correspondent pas");
       return;
     }
 
     try {
-      const cred = await signUp(inputs.current[0].value, inputs.current[1].value);
+      const cred = await signUp(username, email, password);
       formRef.current.reset();
       setValidation("");
       console.log(cred);
@@ -38,17 +47,19 @@ export default function SignUpModal() {
       navigate("/private/private-home");
     } catch (err) {
       if (err.code === "auth/invalid-email") {
-        setValidation("Email format invalid");
+        setValidation("Format d'e-mail invalide");
       }
 
       if (err.code === "auth/email-already-in-use") {
-        setValidation("Email already used");
+        setValidation("E-mail déjà utilisé");
       }
     }
   };
 
   const togglePasswordVisibility = () => {
-    setPasswordFieldType((prevType) => (prevType === "password" ? "text" : "password"));
+    setPasswordFieldType((prevType) =>
+      prevType === "password" ? "text" : "password"
+    );
   };
 
   const closeModal = () => {
@@ -59,8 +70,14 @@ export default function SignUpModal() {
   return (
     <>
       {modalState.signUpModal && (
-        <div className="position-fixed top-0 vw-100 vh-100" style={{ zIndex: 1000 }}>
-          <div onClick={closeModal} className="w-100 h-100 bg-dark bg-opacity-75"></div>
+        <div
+          className="position-fixed top-0 vw-100 vh-100"
+          style={{ zIndex: 1000 }}
+        >
+          <div
+            onClick={closeModal}
+            className="w-100 h-100 bg-dark bg-opacity-75"
+          ></div>
           <div
             className="position-absolute top-50 start-50 translate-middle"
             style={{ minWidth: "400px" }}
@@ -73,22 +90,27 @@ export default function SignUpModal() {
                 </div>
 
                 <div className="modal-body">
-                  <form ref={formRef} onSubmit={handleForm} className="sign-up-form">
-                  <div className="mb-3">
-                      <label htmlFor="signUpEmail" className="form-label">
+                  <form
+                    ref={formRef}
+                    onSubmit={handleForm}
+                    className="sign-up-form"
+                  >
+                    <div className="mb-3">
+                      <label htmlFor="username" className="form-label">
                         Nom d'utilisateur
                       </label>
                       <input
-                        name="name"
+                        ref={addInputs}
+                        name="username"
                         required
-                        type="name"
-                        className="form-name"
-                        id="nameModal"
+                        type="text"
+                        className="form-control"
+                        id="username"
                       />
                     </div>
                     <div className="mb-3">
                       <label htmlFor="signUpEmail" className="form-label">
-                        adresse e-mail
+                        Adresse e-mail
                       </label>
                       <input
                         ref={addInputs}
